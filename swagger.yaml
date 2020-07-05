@@ -96,7 +96,7 @@ definitions:
       label:
         type: "string"
         example: "GST"
-      fixedAmount:
+      fixedTax:
         type: "number"
         example: "0.00"
   ErrorResponse:

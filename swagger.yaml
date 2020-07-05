@@ -71,7 +71,7 @@ definitions:
       price:
         type: "number"
         example: "500.00"
-      actualPrice:
+      totalPrice:
         type: "number"
         example: "551.00"
       taxes:
@@ -90,13 +90,13 @@ definitions:
       percentage:
         type: "number"
         example: "10"
-      amount:
+      taxAmount:
         type: "number"
         example: "51.00"
       label:
         type: "string"
         example: "GST"
-      fixedTax:
+      fixedTaxAmount:
         type: "number"
         example: "0.00"
   ErrorResponse:

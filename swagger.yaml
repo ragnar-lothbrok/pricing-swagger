@@ -38,9 +38,9 @@ paths:
         description: "True if need detailed pricing else false"
         required: false
         type: "boolean"
-      - name: "locale"
+      - name: "currency"
         in: header
-        description: "Locale which tells for which area Pricing is Requested. E.g. INR / USD"
+        description: "What kind of Pricing is Requested. E.g. INR / USD"
         required: true
         type: "string"
         enum:

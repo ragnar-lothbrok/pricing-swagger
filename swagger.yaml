@@ -8,15 +8,15 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "xyz.com"
-basePath: "/v1/lms"
+host: "localhost:8080"
+basePath: "/lms/v1/price"
 tags:
 - name: "pricing"
   description: "Everything about course pricing"
 schemes:
 - "http"
 paths:
-  /course/{courseId}/price:
+  /course/{courseId}:
     get:
       tags:
       - "pricing"
@@ -57,23 +57,31 @@ definitions:
   CoursePricingResponse:
     type: "object"
     properties:
-      courseId:
-        type: "integer"
-        format: "int64"
-      price:
-        $ref: "#/definitions/Price"
-  Price:
+      data:
+        type: "array"
+        items:
+          $ref: "#/definitions/PricingResponse"
+  PricingResponse:
     type: "object"
     properties:
       salePrice:
         type: "number"
-        example: "600.00"
+        example: 600.99
       price:
         type: "number"
-        example: "500.00"
+        example: 500.99
       totalPrice:
         type: "number"
-        example: "551.00"
+        example: 551.99
+      totalTax:
+        type: "number"
+        example: 51.99
+      subscriptionName:
+        type: "string"
+        example: "6 Month"
+      subscriptionId:
+        type: "number"
+        example: 4
       taxes:
         type: "array"
         items:
@@ -89,16 +97,16 @@ definitions:
     properties:
       percentage:
         type: "number"
-        example: "10"
+        example: 10.99
       taxAmount:
         type: "number"
-        example: "51.00"
+        example: 51.99
       label:
         type: "string"
         example: "GST"
       fixedTaxAmount:
         type: "number"
-        example: "0.00"
+        example: 0.00
   ErrorResponse:
     type: "object"
     properties:

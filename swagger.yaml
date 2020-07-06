@@ -12,8 +12,6 @@ host: "localhost:8080"
 tags:
 - name: "Pricing Service"
   description: "Provides APIs to fetch Pricing of a given Course."
-- name: "Health Check"
-  description: "Provides API to check Health of Pricing Service."
 schemes:
 - "http"
 paths:
@@ -69,7 +67,7 @@ paths:
         200:
           description: Details of each component service is communicating.
           schema:
-            $ref: '#/definitions/detailed-health-response'
+            $ref: '#/definitions/DetailedHealthResponse'
         400:
           description: "Invalid Request."
           schema:
@@ -136,7 +134,7 @@ definitions:
         format: "int64"
       errorMessage:
         type: "string"
-  detailed-health-response:
+  DetailedHealthResponse:
       description: detailed health check of each internal components.
       type: object
       properties:

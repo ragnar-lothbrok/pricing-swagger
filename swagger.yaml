@@ -32,6 +32,11 @@ paths:
         required: true
         type: "integer"
         format: "int64"
+      - name: "inline"
+        in: "query"
+        description: "True if need detailed pricing else false"
+        required: false
+        type: "boolean"
       - name: "locale"
         in: header
         description: "Locale which tells for which area Pricing is Requested. E.g. INR / USD"

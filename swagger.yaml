@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   description: "This represents API spec for Pricing Service."
   version: "1.0.0"
-  title: "Swagger Pricing Service"
+  title: "Pricing Service APIs"
   contact:
     email: "raghu@xyz.com"
   license:
@@ -10,15 +10,17 @@ info:
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 host: "localhost:8080"
 tags:
-- name: "pricing"
-  description: "Everything about course pricing"
+- name: "Pricing Service"
+  description: "Provides APIs to fetch Pricing of a given Course."
+- name: "Health Check"
+  description: "Provides API to check Health of Pricing Service."
 schemes:
 - "http"
 paths:
   /lms/v1/price/course/{courseId}:
     get:
       tags:
-      - "pricing"
+      - "Pricing Service"
       summary: "Find Pricing by Course ID"
       description: "Returns a Pricing Details"
       operationId: "getPriceByCoursId"
@@ -59,6 +61,8 @@ paths:
             $ref: "#/definitions/ErrorResponse"
   '/actuator/health':
     get:
+      tags:
+      - "Pricing Service"
       operationId: Detailed health check of current service
       summary: Detailed health check of current service
       responses:
@@ -70,7 +74,6 @@ paths:
           description: "Invalid Request."
           schema:
             $ref: "#/definitions/ErrorResponse"
-      tags: ['Health Check endpoints']
 definitions:
   CoursePricingResponse:
     type: "object"
